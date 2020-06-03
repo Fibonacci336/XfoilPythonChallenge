@@ -37,7 +37,6 @@ def plotAirfoil(datFilePath):
     plt.show()
 
 
-#plotAirfoil('naca633618.dat')
+plotAirfoil('naca633618.dat')
 
-coeff = xfoil_module.find_pressure_coefficients(airfoil='naca633618.dat', alpha=0,NACA=False)
-print(coeff.keys())
+find_pressure_coefficients(airfoil='naca0012', Reynolds = 1e6, alpha=12.,NACA=True)
