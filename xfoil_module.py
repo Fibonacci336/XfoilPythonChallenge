@@ -109,6 +109,7 @@ def call(airfoil, alfas=None, output='Cp', Reynolds=0, Mach=0,  # noqa C901
 
         @author: Hakan Tiftikci
         """
+
         ps.stdin.write(cmd + '\n')
         if echo:
             print(cmd)
@@ -167,7 +168,7 @@ def call(airfoil, alfas=None, output='Cp', Reynolds=0, Mach=0,  # noqa C901
                 except OSError:
                     pass
 
-                issueCmd('DUMP %r' % filename)
+                issueCmd('DUMP %s' % filename)
 
             if output == "Polar":
                 issueCmd("PWRT 1")
@@ -177,6 +178,7 @@ def call(airfoil, alfas=None, output='Cp', Reynolds=0, Mach=0,  # noqa C901
     #                Characteristics of the simulation
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     # By default the code considers the flow to be inviscid.
+    Multiple = False
     Viscid = False
     if Reynolds != 0:
         Viscid = True
