@@ -15,6 +15,7 @@ import shutil  # Modules necessary for saving multiple plots
 import datetime
 import time
 from os import path
+import platform
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #                           Core Functions
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -230,12 +231,33 @@ def call(airfoil, alfas=None, output='Cp', Reynolds=0, Mach=0,  # noqa C901
         except OSError:
             pass
 
-    # Calling xfoil with Poper
-    ps = sp.Popen(['xfoil'],
-                  stdin=sp.PIPE,
-                  stdout=sout,
-                  stderr=None,
-                  encoding='utf8')
+
+    #Define process diferently for Windows vs Unix based platforms
+
+    currentOS = platform.system()
+
+    #Windows
+    if currentOS  == "Windows":
+        startupinfo = sp.STARTUPINFO()
+        startupinfo.dwFlags |= sp.STARTF_USESHOWWINDOW
+        ps = sp.Popen(['xfoil.exe'],
+                      stdin=sp.PIPE,
+                      stdout=sout,
+                      stderr=None,
+                      startupinfo=startupinfo,
+                      encoding='utf8')
+
+    #Linux or macOS (Assumes xfoil is in PATH
+    if currentOS == "Linux" or currentOS == "Darwin":
+        # Calling xfoil with Poper
+        ps = sp.Popen(['xfoil'],
+                      stdin=sp.PIPE,
+                      stdout=sout,
+                      stderr=None,
+                      encoding='utf8')
+
+
+
 
     # Loading geometry
     if NORM is True:
