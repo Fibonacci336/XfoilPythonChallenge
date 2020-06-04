@@ -125,26 +125,28 @@ def getTrailingEdgeProperties(airfoilDAT, alphas, Reynolds):
 
 #Plot Boundary layer properties at the trailing edge
 def plotBoundaryProperties(airfoilDAT):
+
     fig, axs = plt.subplots(rValSize, 3)
     fig.set_figwidth(10)
     fig.set_figheight(10)
+
     for rIndex in range(0, rValSize):
         rNum = rValues[rIndex]
 
         dStars, thetas, Hs = getTrailingEdgeProperties(airfoilDAT, aoaValues, rNum)
 
         axs[rIndex, 0].plot(dStars, aoaValues)
-        axs[rIndex, 0].set_title('D-Thickness vs AoA')
+        axs[rIndex, 0].set_title('D-Thickness vs AoA\nR={:.1e}'.format(rNum))
         axs[rIndex, 0].set_xlabel("D-Thickness")
         axs[rIndex, 0].set_ylabel("AoA")
 
         axs[rIndex, 1].plot(thetas, aoaValues)
-        axs[rIndex, 1].set_title('M-Thickness vs AoA')
+        axs[rIndex, 1].set_title('M-Thickness vs AoA\nR={:.1e}'.format(rNum))
         axs[rIndex, 1].set_xlabel("M-Thickness")
         axs[rIndex, 1].set_ylabel("AoA")
 
         axs[rIndex, 2].plot(Hs, aoaValues)
-        axs[rIndex, 2].set_title('Shape Factor vs AoA')
+        axs[rIndex, 2].set_title('Shape Factor vs AoA\nR={:.1e}'.format(rNum))
         axs[rIndex, 2].set_xlabel("Shape Factor")
         axs[rIndex, 2].set_ylabel("AoA")
 
