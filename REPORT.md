@@ -5,7 +5,7 @@
 <img src="./saved_plots/3M-CoefPlots.png" width="32%"> <img src="./saved_plots/10M-CoefPlots.png" width="32%"> <img src="./saved_plots/15M-CoefPlots.png" width="32%"> 
 
 **C<sub>L</sub> vs AoA:** Graph becomes more linear (less exponential) as well as shifting upward with higher Reynolds numbers.\
-This indicates that in scenarios with high turbulence (higher Reynolds numbers) you must increase the angle of attack more to achieve the same lift in less turbulent scenarios (lower Reynolds numbers)
+This indicates that in scenarios with high turbulence (higher Reynolds numbers) you must increase the angle of attack more to achieve the same lift in less turbulent scenarios (lower Reynolds numbers).
  
 
 **C<sub>D</sub> vs Aoa:** Graph stays the same shape but upper bound decreases from ~0.08 to ~0.04, specifically after changing the Reynolds number from 10 million to 15 million.\
@@ -31,4 +31,4 @@ This is largely because of the increase in C<sub>L</sub> graph but this indicate
 Drag and momentum thickness also have a direct correlation. Since wind turbines recieve more energy from lift than drag, it is important to minimize drag.\
 Due to the previously stated relationships, D-thickness and M-thickness must be minimized.\
 As seen in the graphs, while one of the minimums tends to stay around 20º AoA, the other minimum drifts from 0º to around -5º.
-* Since the shape factor graph becomes more erratic, with fewer minimums, as the Reynolds number increases, there are less options for angle of attack to decrease the shape factor and create a later transition from laminar to turbulant flow.\
+* Since the shape factor graph becomes more erratic, with fewer minimums, as the Reynolds number increases, there are less options for angle of attack to decrease the shape factor and create a later transition from laminar to turbulant flow.
